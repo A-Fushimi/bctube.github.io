@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BC Tube - 乳癌最新論文サマリー</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <h1><span class="logo-icon">&#x1F4D6;</span> BC Tube</h1>
+      <p class="subtitle">乳癌（Breast Cancer）の最新論文を PubMed からお届けします</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="search-section">
+      <div class="search-box">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="キーワードを追加（例：immunotherapy, HER2, triple negative ...）"
+        >
+        <select id="sortOrder">
+          <option value="date">新しい順</option>
+          <option value="relevance">関連度順</option>
+        </select>
+        <button id="searchBtn">検索</button>
+      </div>
+      <div class="filter-tags">
+        <span class="tag active" data-query="breast cancer">全般</span>
+        <span class="tag" data-query="breast cancer HER2">HER2</span>
+        <span class="tag" data-query="breast cancer triple negative">トリプルネガティブ</span>
+        <span class="tag" data-query="breast cancer immunotherapy">免疫療法</span>
+        <span class="tag" data-query="breast cancer hormone therapy">ホルモン療法</span>
+        <span class="tag" data-query="breast cancer surgery">外科治療</span>
+        <span class="tag" data-query="breast cancer screening">スクリーニング</span>
+        <span class="tag" data-query="breast cancer genomics">ゲノミクス</span>
+      </div>
+    </section>
+
+    <section class="results-section">
+      <div class="results-header">
+        <p id="resultsCount"></p>
+        <div id="loading" class="loading hidden">
+          <div class="spinner"></div>
+          <span>PubMed から論文を取得中...</span>
+        </div>
+      </div>
+      <div id="papersList" class="papers-list"></div>
+      <div class="pagination" id="pagination"></div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>BC Tube &mdash; PubMed E-utilities API を利用しています。論文データは <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank">PubMed</a> が提供しています。</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
